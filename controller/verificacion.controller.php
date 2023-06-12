@@ -6,6 +6,7 @@ if(isset($_POST['usuario']) && isset($_POST['password'])){
     $user = validarAdmin1($_POST['usuario']);
     if(password_verify($_POST['password'], $user['password'])){
         borrarSuperAdmin($user['usuario']);
+        alterTable();
         header("location: ../view/registrarPersonal.view.php");
     }else{
         header("location: ../view/login.admin.php");
@@ -25,11 +26,12 @@ if(isset($_POST['usuario']) && isset($_POST['password'])){
 
         if(!$conexion->query($sql)){
             echo 'error en insertar valores a la tabla personal';
+            header("location: ../view/login.admin.php");
         }
         
         header("location:../view/login.admin.php");
     }else{
-        header("location: ../view/login.view.php");
+        header("location: ../");
     }
 }
 

@@ -20,6 +20,13 @@ function borrarSuperAdmin($usuario){
     $sql = "DELETE FROM login WHERE usuario = '$usuario';";
     $conexion->query($sql);
 }
+
+function alterTable(){
+    $conexion = Conexion();
+    $sql = "ALTER TABLE login AUTO_INCREMENT = 1;";
+    $conexion->query($sql);
+}
+
 function insertarPersonal($nombre,$apellido,$dni,$telefono,$correo,$direccion,$genero){
     $conexion = Conexion();
     $sql = "INSERT INTO personal VALUES(null,'$nombre','$apellido',$dni,'$telefono','$correo','$direccion','$genero');";

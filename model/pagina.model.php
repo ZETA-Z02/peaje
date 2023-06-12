@@ -81,12 +81,13 @@ function insertarPeaje($placa,$idcategoria,$fecha,$hora,$opcionPago,$monto,$idlo
 //all el registro todo  
 function Registro(){
     $conexion = Conexion();
-    $sql = "SELECT r.*, SUBSTRING_INDEX(t.descripcion, ' ', -2) AS tipo, t.tarifa,  (SELECT CONCAT(nombre, ' ', apellido) AS name FROM personal WHERE id_personal = r.id_login) AS name  
-    FROM registroVehiculos r  JOIN tarifa t ON r.id_categoria = t.id_categoria;";
+    $sql = "SELECT r.*, SUBSTRING_INDEX(t.descripcion, ' ', -2) AS tipo, t.tarifa,  
+            (SELECT CONCAT(nombre, ' ', apellido) AS name FROM personal WHERE id_personal = r.id_login) AS name  
+            FROM registroVehiculos r  
+            JOIN tarifa t ON r.id_categoria = t.id_categoria;";
     $data = $conexion->query($sql);
     return $data;
 }
-
 function registroHora($hora,$fecha,$personal,$categoria){
     $conexion = Conexion();
     $sql = "SELECT r.*, SUBSTRING_INDEX(t.descripcion, ' ', -2) AS tipo, t.tarifa,  (SELECT CONCAT(nombre, ' ', apellido) AS name 
@@ -110,7 +111,17 @@ function registroHora($hora,$fecha,$personal,$categoria){
     $data = $conexion->query($sql);
     return $data; 
 }
-
+//registro para ver todo al revez
+function RegistroRevez(){
+    $conexion = Conexion();
+    $sql = "SELECT r.*, SUBSTRING_INDEX(t.descripcion, ' ', -2) AS tipo, t.tarifa,  
+            (SELECT CONCAT(nombre, ' ', apellido) AS name FROM personal WHERE id_personal = r.id_login) AS name  
+            FROM registroVehiculos r  
+            JOIN tarifa t ON r.id_categoria = t.id_categoria
+            ORDER BY r.id_registro DESC;";
+    $data = $conexion->query($sql);
+    return $data;
+}
 
 //CONSULTAS PARA EL ARQUEO
 function arqueo($fecha){

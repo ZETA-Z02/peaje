@@ -12,11 +12,16 @@ if(!empty($_POST['nombre']) && !empty($_POST['apellido']) && !empty($_POST['dni'
     $correo = $_POST['correo'];
     $direccion = $_POST['direccion'];
     $genero = $_POST['genero'];  
-
+    
+    if($data = verPersonal($nombre,$apellido,$dni)){
+        header("location: ../view/registrarUsuario.view.php?idpersonal=".urlencode($data['id_personal']));
+    }
+    
     if(!insertarPersonal($nombre,$apellido,$dni,$telefono,$correo,$direccion,$genero)){
         echo 'algo salio mal';
         header("location: ../view/registrarPersonal.view.php");
     }
+    
     $data = verPersonal($nombre,$apellido,$dni);
 
     header("location: ../view/registrarUsuario.view.php?idpersonal=".urlencode($data['id_personal']));

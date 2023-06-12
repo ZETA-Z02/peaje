@@ -4,11 +4,11 @@
 <center>
     <form action="../controller/registro.controller.php" method="POST">
         <label for="nombre">Nombre: </label>
-        <input type="text" name="nombre" required>
+        <input type="text" name="nombre" minlength="2" maxlength="20" required>
         <br>
         <br>
         <label for="contrasena">Apellido:</label>
-        <input type="text" name="apellido" minlength="5" maxlength="20" required>
+        <input type="text" name="apellido" minlength="2" maxlength="20" required>
         <br>
         <br>
         <label for="contrasena">DNI:</label>
@@ -17,23 +17,21 @@
         <br>
         <br>
         <label for="contrasena">Telefono:</label>
-        <input type="number" name="telefono" minlength="9" maxlength="9"required>
+        <input type="text" name="telefono" minlength="9" maxlength="9" required>
         <br>
         <br>
         <label for="contrasena">Correo:</label>
-        <input type="text" name="correo" minlength="10" maxlength="40" required>
+        <input type="email" name="correo" minlength="10" maxlength="40" required>
         <br>
         <br>
         <label for="contrasena">Direccion:</label>
-        <input type="text" name="direccion" required>
+        <input type="text" name="direccion" maxlength = "50" required>
         <br>
         <br>
         <label for="contrasena">Genero:</label>
-        <input type="text" name="genero" required>
+        <input type="text" name="genero" maxlength="9" required>
 
         <input type="submit" value="Registrar">
-        <br>
-        <h3><a href="../vista/bienvenida.php">Ir a Registrar Usuario</a></h3>
     </form>
 
 </center>

@@ -20,42 +20,42 @@ switch (true){
                 <div class="row mb-3">
                     <label class="col-sm-2 col-form-label" for="">Nombre</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" id="nombre" name="nombre"  value = "<?= $personal['nombre']?>">
+                        <input type="text" class="form-control" id="nombre" name="nombre"  value = "<?= $personal['nombre']?>" maxlength="40">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label class="col-sm-2 col-form-label" for="">Apellidos:</label>
                     <div class="col-sm-8">
-                        <input type="text" required class="form-control" id="apellido" name="apellido"  value = "<?= $personal['apellido']?>">
+                        <input type="text" required class="form-control" id="apellido" name="apellido"  value = "<?= $personal['apellido']?>" maxlength="40">
                     </div>
                 </div>
                 <fieldset class="row mb-3">
                     <legend class="col-form-label col-sm-2 pt-0">DNI:</legend>
-                    <input type="text" name = "dni" value = "<?= $personal['dni']?>" readonly>
+                    <input type="text" name = "dni" value = "<?= $personal['dni']?>" readonly minlength="8" maxlength="8">
                     </div>
                 </fieldset>
                 <div class="row mb-3">
                     <label class="col-sm-2 col-form-label">telefono:</label>
                     <div class="col-sm-2">
-                        <input type="text" required class="form-control" id="dni" name="telefono"  value = "<?= $personal['telefono']?>">
+                        <input type="text" required class="form-control" id="dni" name="telefono"  value = "<?= $personal['telefono']?>" minlength="9" maxlength="9">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label class="col-sm-2 col-form-label" for="">correo:</label>
                     <div class="col-sm-3">
-                        <input type="text" required class="form-control" id="telefono" name="correo"  value = "<?= $personal['correo']?>">
+                        <input type="text" required class="form-control" id="telefono" name="correo"  value = "<?= $personal['correo']?>" maxlength="50">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label class="col-sm-2 col-form-label">Dirección:</label>
                     <div class="col-sm-2">
-                        <input type="text" required class="form-control" id="direccion" name="direccion" value = "<?= $personal['direccion']?>">
+                        <input type="text" required class="form-control" id="direccion" name="direccion" value = "<?= $personal['direccion']?>" maxlength="50">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label class="col-sm-2 col-form-label">Genero:</label>
                     <div class="col-sm-2">
-                        <input type="text" required class="form-control" id="direccion" name="genero"  value = "<?= $personal['genero']?>">
+                        <input type="text" required class="form-control" id="direccion" name="genero"  value = "<?= $personal['genero']?>" minlength="8" maxlength="9">
                     </div>
                 </div>
                 

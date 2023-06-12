@@ -56,7 +56,7 @@ require("../other/header.php");
             <div class="Formulario">
                 <div class="formulario-campo">
                     <label for="nombre">Placa:</label>
-                    <input type="text" id="nombre" name="placa" placeholder="Ingresa N° de Placa" value = "<?= $placa?>">
+                    <input type="text" id="nombre" name="placa" placeholder="Ingresa N° de Placa" value = "<?= $placa?>" minlength = "7" maxlength="7">
                 </div>
 
                 <div class="formulario-campo">
@@ -80,7 +80,7 @@ require("../other/header.php");
                 </div>               
                 <div class="formulario-campo">
                     <label for="monto">monto de ingreso o RUC: </label>
-                    <input type="text" id="monto" name="ingreso" placeholder="monto ingreso" value = "<?= $ingreso?>">
+                    <input type="text" id="monto" name="ingreso" placeholder="monto ingreso" value = "<?= $ingreso?>" minlength="1" maxlength="11">
                 </div>
             </div>
 
@@ -88,5 +88,10 @@ require("../other/header.php");
                 <button type="submit" value="Enviar">enviar</button>
             </div>
     </form>
+    <div class="col">
+            <a href="../controller/salida.controller.php"> 
+                <button type = "button" class="btn btn-danger">SALIR</button>
+            </a>
+        </div>
 
 </div>

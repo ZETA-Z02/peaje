@@ -5,28 +5,27 @@ $registro = Registro();
 
 $categoria = tarifas();
 
-require "../other/header1.php";
+require "../other/headerdiana.php";
 
 while ($row = $registro->fetch_array(MYSQLI_ASSOC)) {
     $personalOptions[] = $row;
 }
 
 ?>
-
 <div class="col-md-8">
-<h2>Registro vehiculos ADMIN</h2>
-<table class="table table-success table-bordered">
+<h1>REGISTRO DE VEHICULOS ADMIN</h1><br><br><br>
+<table class="tabletable">
     <thead>
         <tr>
-            <th> Registro NUM </th>
-            <th> placa </th>
-            <th> categoria </th>
-            <th> fecha </th>
-            <th> hora </th>
-            <th> opcion de pago </th>
-            <th> monto </th>
-            <th> tarifa </th>
-            <th> personal: </th>
+            <th> <h3>Registro NUM </h3></th>
+            <th> <h3>PLACA </h3> </th>
+            <th> <h3>CATEGORIA </h3> </th>
+            <th> <h3>FECHA </h3> </th>
+            <th> <h3>HORA </h3> </th>
+            <th> <h3>OPCION DE PAGO </h3> </th>
+            <th> <h3>MONTO </h3> </th>
+            <th> <h3>TARIFA </h3> </th>
+            <th> <h3>PERSONAL: </h3> </th>
         </tr>
     </thead>
     
@@ -48,7 +47,7 @@ while ($row = $registro->fetch_array(MYSQLI_ASSOC)) {
         <?php }?>                  
     </tbody>
     <form action="../view/selectRegistro.view.php" method="POST">
-        <select id="opciones" name="categoria">
+        <select id="opciones" name="categoria" class="styled-select">
             <?php
             while($row=$categoria->fetch_array(MYSQLI_ASSOC)){ ?>
             <option value="<?= $row['ejes']?>"><?= 'Cat: '.$row['id_categoria'] .'  /num: '. $row['ejes'];?></option>
@@ -58,7 +57,7 @@ while ($row = $registro->fetch_array(MYSQLI_ASSOC)) {
     </form>
 
     <form action="../view/selectRegistro.view.php" method="POST"">
-        <select name="personal" id="option">
+        <select name="personal" id="option" class="styled-select1">
             <?php 
             foreach($personalOptions as $row1) {?>
                 <option value="<?= $row1['id_login']?>"><?= $row1['name']; ?></option>
@@ -76,8 +75,11 @@ while ($row = $registro->fetch_array(MYSQLI_ASSOC)) {
         <input type="time" name = 'hora'>
         <input type="submit" name= 'buttonHora'>
     </form>
+    <form action="../view/selectRegistro.view.php" method="POST"">
+        <input type="submit" name= 'revez' value="revez">
+    </form>
     
 </table>
 
-<a href="admin.view.php">atras</a>
+<a href="admin.view.php"><h2>ATRAS</h2></a>
 </div>

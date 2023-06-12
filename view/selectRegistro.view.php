@@ -29,6 +29,10 @@ if(isset($_POST['buttonHora'])){
 }
 
 $filtro = registroHora($hora,$fecha,$idlogin,$categoria);
+if(isset($_POST['revez'])){
+    $filtro= RegistroRevez();
+}
+
 ?>
 <head>
     <link rel="stylesheet" href="../asset/css/stylez.css">

@@ -25,8 +25,6 @@
         </h4>
 
         <input type="submit" value="Registrar">
-        <br>
-        <h3><a href="../vista/bienvenida.php">REGRESAR</a></h3>
     </form>
 </center>
 <?php  include('../other/footer.php')?>

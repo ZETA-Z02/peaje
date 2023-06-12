@@ -1,0 +1,161 @@
+h1 {
+    background-image: linear-gradient(to right, #F0E9D2, #678983, #F0E9D2);
+    text-align: center;
+    font-weight: bold;
+    border: 5px dotted #000000;
+    padding: 10px;
+}
+body{
+    background-image: linear-gradient(to right, #F0E9D2, #678983, #F0E9D2);
+    font-family: 'Franklin Gothic Medium';
+}
+
+thead{
+    text-align: center;
+}
+.tabletable{
+    background-image: linear-gradient(to right, #025464, #E3F2C1, #025464);
+    border-bottom: 1px solid black; /* Añade espacio interno para separar el contenido del borde */
+    width: 70%;
+    border: 1px solid #000;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+th, td {
+    width: 25%;
+    text-align: left;
+    vertical-align: top;
+    border: 1px solid #000;
+    border-color: rgb(0, 247, 255);
+ }
+
+ a{
+    color: rgb(6, 6, 37); /* Establece el color del texto del enlace */
+    text-decoration: none; /* Elimina la decoración de subrayado predeterminada */
+    text-align: center;
+ }
+
+ input[name="buttonCategoria"] {
+    background-image: linear-gradient(to right, #a2fcf7, #5F7161);
+    color: black; /* Color de texto */
+    padding: 5px;
+    width: 130px;
+    font-size: 16px; /* Tamaño de fuente */
+    border: 3px solid #213555;
+    cursor: pointer; /* Cambia el cursor al pasar el ratón */
+    position: relative;
+    left: 85px; /* Mueve el botón 10 píxeles hacia la derecha */
+  }
+  .styled-select {
+    border: 3px solid #213555;
+    padding: 5px;
+    width: 200px;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333333;
+    background-image: linear-gradient(to right, #a2fcf7, #5F7161);
+    position: relative;
+    left: 75px; /* Mueve el botón 10 píxeles hacia la derecha */
+  }
+  
+  .styled-select option {
+    background-color: #F2F2F2;
+    color: #333333;
+    font-size: 16px;
+  }
+  
+
+  input[name="buttonLogin"] {
+    background-image: linear-gradient(to right, #a2fcf7, #5F7161);
+    color: black; /* Color de texto */
+    padding: 5px;
+    width: 80px;
+    font-size: 16px; /* Tamaño de fuente */
+    border: 3px solid #213555;
+    cursor: pointer; /* Cambia el cursor al pasar el ratón */
+    position: relative;
+    left: 140px; /* Mueve el botón 10 píxeles hacia la derecha */
+  }
+  .styled-select1 {
+    border: 3px solid #213555;
+    padding: 5px;
+    width: 80px;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333333;
+    background-image: linear-gradient(to right, #a2fcf7, #5F7161);
+    position: relative;
+    left: 135px; /* Mueve el botón 10 píxeles hacia la derecha */
+  }
+  
+  .styled-select1 option {
+    background-color: #F2F2F2;
+    color: #333333;
+    font-size: 16px;
+  }
+
+  input[name="buttonFecha"] {
+    background-image: linear-gradient(to right, #a2fcf7, #5F7161);
+    color: black; /* Color de texto */
+    padding: 5px;
+    width: 80px;
+    font-size: 16px; /* Tamaño de fuente */
+    border: 3px solid #213555;
+    cursor: pointer; /* Cambia el cursor al pasar el ratón */
+    position: relative;
+    left: 200px; /* Mueve el botón 10 píxeles hacia la derecha */
+  }
+
+  input[name="fecha"] {
+    background-image: linear-gradient(to right, #a2fcf7, #5F7161);
+    color: black; /* Color de texto */
+    padding: 5px;
+    width: 120px;
+    font-size: 16px; /* Tamaño de fuente */
+    border: 3px solid #213555;
+    cursor: pointer; /* Cambia el cursor al pasar el ratón */
+    position: relative;
+    left:  195px; /* Mueve el botón 10 píxeles hacia la derecha */
+  }
+
+  input[name="buttonHora"] {
+    background-image: linear-gradient(to right, #a2fcf7, #5F7161);
+    color: black; /* Color de texto */
+    font-weight: 700;
+    padding: 4px;
+    width: 120px;
+    font-size: 16px; /* Tamaño de fuente */
+    border: 3px solid #213555;
+    cursor: pointer; /* Cambia el cursor al pasar el ratón */
+    position: relative;
+    left: 250px; /* Mueve el botón 10 píxeles hacia la derecha */
+
+  }
+
+  input[name="hora"] {
+    background-image: linear-gradient(to right, #a2fcf7, #5F7161);
+    color: black; /* Color de texto */
+    font-weight: 1000;
+    padding: 2px;
+    width: 90px;
+    font-size: 16px; /* Tamaño de fuente */
+    border: 3px solid #213555;
+    cursor: pointer; /* Cambia el cursor al pasar el ratón */
+    position: relative;
+    left: 240px; /* Mueve el botón 10 píxeles hacia la derecha */
+
+  }
+  input[name="revez"] {
+    background-image: linear-gradient(to right, #a2fcf7, #5F7161);
+    color: black; /* Color de texto */
+    font-weight: 1000;
+    padding: 2px;
+    width: 90px;
+    font-size: 16px; /* Tamaño de fuente */
+    border: 3px solid #213555;
+    cursor: pointer; /* Cambia el cursor al pasar el ratón */
+    position: relative;
+    left: 300px; /* Mueve el botón 10 píxeles hacia la derecha */
+
+  }

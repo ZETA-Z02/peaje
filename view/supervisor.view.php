@@ -17,7 +17,6 @@ while ($row = $registro->fetch_array(MYSQLI_ASSOC)) {
 <div>
         <center>
             <h1>BIENVENIDO supervisor</h1>
-            <h2>hola</h2>
         </center>
     </div>
 
