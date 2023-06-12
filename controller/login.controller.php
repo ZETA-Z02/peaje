@@ -25,11 +25,11 @@ if(isset($_POST['usuario']) && isset($_POST['password'])){
                 break;
         }
     }else{
-        header("location: ../view/login.view.php");
+        header("location: ../");
     }
     //header("location: ../view/registrarPersonal.view.php");
 }else{
-    header("location: ../view/login.view.php");
+    header("location: ../");
 }
 
 ?>

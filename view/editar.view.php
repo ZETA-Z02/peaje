@@ -8,7 +8,9 @@ switch (true){
     //echo 'se ejecuta editar personal';
     //header("location: ../view/editarPersonal.php?idpersonal=".urlencode($idpersonal));
     $personal = personalUnico($idpersonal);
+    
     ?>
+    <?php  include('../other/header.php')?>
         <h1>EDITAR EL PERFIL DEL PERSONAL</h1>
 
             <form action="../controller/editar.controller.php?idpersonal=<?= $personal['id_personal']?>" method="post" id = "my-form">
@@ -71,6 +73,7 @@ switch (true){
     $login = loginUnico($idlogin,null);
 
     ?>
+    <?php  include('../other/header.php')?>
         <h1>EDITAR AL USUARIO Y CONTRASEÑA</h1>
 
             <form action = "../controller/editar.controller.php?idlogin=<?= $login['id_login']?>" id = "my-form" method = "post">
@@ -122,6 +125,7 @@ switch (true){
     //conuslta para ver la categoria unica para editar
     $tarifa = tarifaUnica($idcategoria);
     ?>
+    <?php  include('../other/header.php')?>
         <h1>EDITAR CATEGORIAS</h1>
 
         <form action = "../controller/editar.controller.php?idcategoria=<?=$tarifa['id_categoria']?>" id = "my-form" method = "post">
