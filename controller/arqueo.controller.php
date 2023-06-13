@@ -4,7 +4,7 @@ session_start();
 include('/usr/share/php/tcpdf/tcpdf.php');
 require("../model/pagina.model.php");
 
-$pdf = new TCPDF ('P', 'mm', 'A4', true, 'UTF-8');
+$pdf = new TCPDF ('P', 'mm', 'A4', true, 'UTF-8');/*Clase para crear un PDF */
 
 
 $fecha = $_POST['fecha'];

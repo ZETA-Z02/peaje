@@ -4,7 +4,7 @@
 <center>
     <form action="../controller/registroUser.controller.php" method="POST" id = "my-form">
         <label for="nombre">DNI:</label>
-        <input type="text" name="usuario" required>
+        <input type="text" name="usuario" maxlength="8" required>
         <br>
         <br>
         <label for="contrasena">Contraseña:</label>

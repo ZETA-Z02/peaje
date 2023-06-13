@@ -28,8 +28,13 @@
         <input type="text" name="direccion" maxlength = "50" required>
         <br>
         <br>
-        <label for="contrasena">Genero:</label>
-        <input type="text" name="genero" maxlength="9" required>
+        <h4>Tipo de Genero 
+            <select name="genero" id="">                
+                <option value="masculino">Masculino</option>
+                <option value="femenino">Femenino</option>
+            </select>
+        </h4>
+
 
         <input type="submit" value="Registrar">
     </form>
