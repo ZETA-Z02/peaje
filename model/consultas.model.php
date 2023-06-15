@@ -33,6 +33,14 @@ function insertarPersonal($nombre,$apellido,$dni,$telefono,$correo,$direccion,$g
     $conexion->query($sql);
 }
 
+function verificarDni($dni){
+    $conexion = Conexion();
+    $sql = "SELECT dni FROM personal WHERE dni = '$dni';";
+    $result = $conexion->query($sql);
+    $data = $result->fetch_array(MYSQLI_ASSOC);
+    return $data;
+}
+
 function verPersonal($nombre,$apellido,$dni){   
     $conexion = Conexion();
     $sql = "SELECT * FROM personal WHERE nombre = '$nombre' AND apellido = '$apellido' AND dni = '$dni';";

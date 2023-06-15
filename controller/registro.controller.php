@@ -13,22 +13,25 @@ if(!empty($_POST['nombre']) && !empty($_POST['apellido']) && !empty($_POST['dni'
     $direccion = $_POST['direccion'];
     $genero = $_POST['genero'];  
     
-    if($data = verPersonal($nombre,$apellido,$dni)){
+    if($data = verPersonal($nombre, $apellido, $dni)) {
         header("location: ../view/registrarUsuario.view.php?idpersonal=".urlencode($data['id_personal']));
+    }else{
+        // Insertar el nuevo registro
+        $dniData = verificarDni($dni);
+        if(!empty($dniData['dni'])){
+            header("location: ../view/registrarPersonal.view.php?msg=dniExistente");
+        }else{
+            if(insertarPersonal($nombre, $apellido, $dni, $telefono, $correo, $direccion, $genero)){
+                // Obtener los datos del nuevo registro insertado
+                $data = verPersonal($nombre, $apellido, $dni);
+                header("location: ../view/registrarUsuario.view.php?idpersonal=".urlencode($data['id_personal']));
+            } else {
+                echo 'algo salio mal';
+                header("location: ../view/registrarPersonal.view.php");
+            }
+        }
     }
-    
-    if(!insertarPersonal($nombre,$apellido,$dni,$telefono,$correo,$direccion,$genero)){
-        echo 'algo salio mal';
-        header("location: ../view/registrarPersonal.view.php");
-    }
-    
-    if(!$data = verPersonal($nombre,$apellido,$dni)){
-        echo 'algo salio mal';
-        header("location: ../view/registrarPersonal.view.php");
-    }
-    
 
-    header("location: ../view/registrarUsuario.view.php?idpersonal=".urlencode($data['id_personal']));
 }else{
     echo 'error faltan datos por llenar';
     header("location: ../view/registrarPersonal.view.php");
