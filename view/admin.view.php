@@ -23,9 +23,9 @@ require('../other/header1.php');
                 <tr>
                     <th> nombre </th>
                     <th> apellido </th>
-                    <th> sexo </th>
-                    <th> dni </th>
-                    <th> telefono </th>
+                    <th> DNI </th>
+                    <th> TELEFONO </th>
+                    <th> CORREO </th>
                     <th> direccion </th>
                     <th> genero </th>
                     <th> edit </th>

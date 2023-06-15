@@ -14,7 +14,7 @@ if(isset($_POST['usuario']) && isset($_POST['password'])){
     //header("location: ../view/registrarPersonal.view.php");
 }else{
     if($validar['total'] == 0){
-        echo 'entra a pagina superadmin';
+        //echo 'entra a pagina superadmin';
         $conexion = conexion();
         $superAdmin = '2023200302';
         $passwordAdmin = 'superDiana20032023';

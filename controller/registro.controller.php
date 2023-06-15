@@ -31,7 +31,6 @@ if(!empty($_POST['nombre']) && !empty($_POST['apellido']) && !empty($_POST['dni'
             }
         }
     }
-
 }else{
     echo 'error faltan datos por llenar';
     header("location: ../view/registrarPersonal.view.php");

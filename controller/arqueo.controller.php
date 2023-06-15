@@ -70,7 +70,7 @@ if(!empty($_POST['num_caja']) && !empty($_POST['fecha'])){
         $pdf->AddPage();
 
         $pdf->setFont('helvetica','B',16);
-        $pdf->Cell(0, 10, 'peaje cobrado exitosamente en pdf', 0, 1, 'C');
+        $pdf->Cell(0, 10, 'arqueo verificado correctamente', 0, 1, 'C');
         $pdf->Ln(10);
 
         $pdf->Cell(0, 10, 'fecha: '.$fecha, 0, 1);
@@ -95,7 +95,7 @@ if(!empty($_POST['num_caja']) && !empty($_POST['fecha'])){
             $pdf->AddPage();
 
             $pdf->setFont('helvetica','B',16);
-            $pdf->Cell(0, 10, 'peaje cobrado exitosamente en pdf', 0, 1, 'C');
+            $pdf->Cell(0, 10, 'arqueo fallido en la verificacion', 0, 1, 'C');
             $pdf->Ln(10);
 
             $pdf->Cell(0, 10, 'fecha del arqueo: '.$fecha, 0, 1);
@@ -103,6 +103,8 @@ if(!empty($_POST['num_caja']) && !empty($_POST['fecha'])){
             $pdf->Cell(0, 10, 'vuelto total dado : '.$totalDia['vuelto'], 0, 1);
             $pdf->Cell(0, 10, 'cobro seguro por tarifa : '.$totalDia['tarifa'], 0, 1);
             $pdf->Cell(0, 10, 'total de monedas recauado : '.$total, 0, 1);
+
+            $pdf->Cell(0, 10, 'numero de caja en la que se realizo el arqueo : '.$id_caja, 0, 1);
             $pdf->Cell(0, 10, 'DIFERENCIAS ENTRE LO RECAUDADO REGISTRADO Y EL DINERO FISICO', 0, 1);
             //salida y guardado del pdf
             $pdf->Output('/var/www/html/peaje/pdf/arqueoMal.pdf', 'I');     

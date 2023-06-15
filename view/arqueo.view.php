@@ -1,5 +1,7 @@
 <?php 
 session_start();
+include("../model/pagina.model.php");
+$cajas = caja();
 
 ?>
 <head>
@@ -60,7 +62,10 @@ session_start();
                 </div>
                 <div class="button">
                     <select name="num_caja" id="">
-                        <option value="1">caja 1</option>
+                        <?php 
+                        while($row=$cajas->fetch_array(MYSQLI_ASSOC)){ ?>
+                        <option value="<?= $row['id_caja']?>"><?= 'Caja: '.$row['id_caja'];?></option>
+                        <?php } ?>
                     </select>
                     <input type="date" name='fecha'>
                     <button type='submit'>enviar</button>
