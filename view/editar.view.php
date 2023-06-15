@@ -155,8 +155,55 @@ switch (true){
             
 
 
-<?php    
+<?php 
     break;
+
+    case (isset($_GET['id_caja'])):
+        $idcaja = $_GET['id_caja'];
+        //echo 'se ejecuta editar caja';
+        //conuslta para ver la caja unica para editar
+        $caja = cajaUnica($idcaja);
+        $personal = Personal();
+        ?>
+        <?php  include('../other/header.php')?>
+            <h1>EDITAR CAJA</h1>
+            <form action="../controller/editar.controller.php?idcaja=<?=$caja['id_caja']?>" id = "my-form" method="post">
+                <div class="Formulario">
+                    
+                    <div class="formulario-campo">
+                        <label for="opciones">Personal de caja:</label>
+                        <select id="opciones" name="personal_caja">
+                            <?php 
+                            //aqui poner al personal encargado cuando se edite
+                            if(isset($caja['id_personal'])){
+                                echo "<option value='".$caja['id_personal']."' selected>".$caja['id_personal']."</option>";
+                            }
+                            while($row=$personal->fetch_array(MYSQLI_ASSOC)){ ?>
+                            <option value="<?= $row['id_personal']?>"><?= 'id: '.$row['id_personal'] .' /nombre: '. $row['nombre'];?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
+                    
+                    <div class="formulario-campo">
+                        <label for="nombre">descripcion:</label>
+                        <input type="textarea" id="nombre" name="descripcion" placeholder="descripcion de la caja" value = "<?= $caja['descripcion']?>">
+                    </div>
+
+                
+                    <div class="formulario-campo">
+                        <label for="monto">monto inicio jordana: </label>
+                        <input type="text" id="monto" name="inicio" placeholder="monto inicio" value = "<?= $caja['monto_inicial']?>" minlength="1" maxlength="11">
+                    </div>
+                </div>
+
+                <div class="campo">
+                    <button type="submit" value="editar">editar</button>
+                </div>
+                </form>
+    <?php 
+        break;
+
+
 
     default:
         echo 'no hay ni un id';

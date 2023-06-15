@@ -1,7 +1,7 @@
 <?php 
 session_start();
 include("../model/pagina.model.php");
-
+//esto no sirve, esto esta en view como selectregistro.view.php
 $idlogin = loginUnico(null,$_SESSION['personal']);
 
 $hora = null;

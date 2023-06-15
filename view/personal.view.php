@@ -1,6 +1,7 @@
 <?php 
 include("../model/pagina.model.php");
-
+session_start();
+$personal = personalUnico($_SESSION['personal']);
 $categoria = tarifas();
 
 $editar = isset($_GET['editar']) ? $_GET['editar'] : false;
@@ -24,7 +25,7 @@ require("../other/header.php");
 
     <div class= 'container'>
         <center>
-            <h1>BIENVENIDO trabajador</h1>
+            <h1>BIENVENIDO trabajador<?= $personal['nombre']?></h1>
             <h2>REGISTRAR VEHICULOS</h2>
         </center>
     

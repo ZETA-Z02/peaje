@@ -59,6 +59,9 @@ session_start();
                     </div>
                 </div>
                 <div class="button">
+                    <select name="num_caja" id="">
+                        <option value="1">caja 1</option>
+                    </select>
                     <input type="date" name='fecha'>
                     <button type='submit'>enviar</button>
                 </div>

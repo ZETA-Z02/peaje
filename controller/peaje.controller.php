@@ -1,9 +1,14 @@
 <?php
+session_start();
+
 date_default_timezone_set('America/Lima');
 
 include('/usr/share/php/tcpdf/tcpdf.php');
 
 require("../model/pagina.model.php");
+
+$numCaja = cajaPersonal($_SESSION['personal']);
+
 //pdf instancia
 $pdf = new TCPDF ('P', 'mm', 'A4', true, 'UTF-8');
 
@@ -81,7 +86,7 @@ if (isset($_POST['editar'])) {
         $pdf->Output('/var/www/html/peaje/pdf/boleta.pdf', 'I');      
         
         //ya guarda el registro en la base de datos
-        if(!insertarPeaje($placa,$idcategoria,$fecha,$hora,$opcionPago,$montoRuc,$idlogin,$vuelto)){
+        if(!insertarPeaje($placa,$idcategoria,$fecha,$hora,$opcionPago,$montoRuc,$idlogin,$vuelto,$numCaja['id_caja'])){
             //echo 'se guardo regitro';
             // Redireccionar a la vista "personal" en una nueva pestaña
             echo '<script>window.open("../pdf/boleta.pdf", "_blank");</script>';

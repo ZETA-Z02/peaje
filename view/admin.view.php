@@ -7,6 +7,7 @@ $personales = personal();
 $personal = personalUnico($_SESSION['admin']);
 $login = usuario();
 $tarifa = tarifas();
+$caja = caja();
 
 require('../other/header1.php');
 ?>
@@ -144,7 +145,51 @@ require('../other/header1.php');
             </tbody>      
         </table>
     </div>
+    <!--ver TODAS LAS CAJAS EDITAR,CREAR, ELIMNAR CRUD PZ -->
+    <div class="row">
+        <h2>CAJAS</h2>
+        <table class="table table-striped table-bordered text-center">
+            <thead class = 'table-info'>
+                <tr>
+                    <th> id_caja</th>
+                    <th> personal encargado </th>
+                    <th> descripcion </th>
+                    <th> monto inicial de jornada </th>
+                    <th> editar </th>
+                    <th> eliminar </th>
+                </tr>
+            </thead>
+            
+            <tbody>
+                <?php
+                
+                while($row = mysqli_fetch_array($caja)) { ?>
+                    <tr>
+                        <td><?php echo $row['id_caja']?> </td>
+                        <td><?php echo $row['id_personal']?> </td> 
+                        <td><?php echo $row['descripcion']?> </td> 
+                        <td><?php echo $row['monto_inicial']?> </td>
+                                        
+                        <td>
+                            <a href="editar.view.php?id_caja=<?=$row['id_caja'];?>">
+                                edit
+                            </a>
+                        </td>
+                                        
+                        <td>
+                            <a href="editar.view.php?id_caja=<?=$row['id_caja'];?>">
+                                eliminar
+                            </a>
+                        </td>
+                    </tr>                   
+                <?php }?>                  
+            </tbody>      
+        </table>
+    </div>
 </div>
+
+
+
 
 <div class="container">
     <div class="row">
@@ -161,6 +206,11 @@ require('../other/header1.php');
         <div class="col">
             <a href="arqueo.view.php">
                 <button type = "button" class="btn btn-succes">VER ARQUEO</button>
+            </a>
+        </div>
+        <div class="col">
+            <a href="caja.view.php">
+                <button type = "button" class="btn btn-dark">VER CAJA</button>
             </a>
         </div>
 

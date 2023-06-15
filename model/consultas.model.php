@@ -47,7 +47,7 @@ function insertarUsuario($idpersonal,$user,$password,$nivel){
 }
 function validarUser($user){
     $conexion = Conexion();
-    $sql = "SELECT id_personal, usuario, password, nivel_usuario FROM login WHERE usuario = '$user';";
+    $sql = "SELECT id_login, id_personal, usuario, password, nivel_usuario FROM login WHERE usuario = '$user';";
     $result = $conexion->query($sql);
     $data = $result->fetch_array(MYSQLI_ASSOC);
     return $data;

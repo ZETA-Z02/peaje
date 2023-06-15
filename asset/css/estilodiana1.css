@@ -159,3 +159,7 @@ th, td {
     left: 300px; /* Mueve el botón 10 píxeles hacia la derecha */
 
   }
+  a{
+    display: flex;
+    position: fixed;
+  }

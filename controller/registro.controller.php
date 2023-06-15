@@ -22,7 +22,11 @@ if(!empty($_POST['nombre']) && !empty($_POST['apellido']) && !empty($_POST['dni'
         header("location: ../view/registrarPersonal.view.php");
     }
     
-    $data = verPersonal($nombre,$apellido,$dni);
+    if(!$data = verPersonal($nombre,$apellido,$dni)){
+        echo 'algo salio mal';
+        header("location: ../view/registrarPersonal.view.php");
+    }
+    
 
     header("location: ../view/registrarUsuario.view.php?idpersonal=".urlencode($data['id_personal']));
 }else{

@@ -64,7 +64,7 @@ switch(true){
 
 
 //update login, se debe poder cambiar la contrase;a
-    case (isset($_GET['idlogin']));
+    case (isset($_GET['idlogin'])):
         $id_login = $_GET['idlogin'];
         //echo $id_login;
 
@@ -85,6 +85,35 @@ switch(true){
         }
 
         break;
+//update para cambiar la caja      
+    case (isset($_GET['idcaja'])):
+        $id_caja = $_GET['idcaja'];
+        //update con nueva consulta para editar caja
+        //echo 'aqui se edita la caja';
+
+        if(!empty($_POST['personal_caja']) && !empty($_POST['descripcion']) && !empty($_POST['inicio'])){
+            echo 'funciona';
+            $id_personal = $_POST['personal_caja']; 
+            $updatedescripcion = $_POST['descripcion'];
+            $updateMonto = $_POST['inicio'];
+            
+            if(!updateCaja($id_caja,$id_personal,$updatedescripcion,$updateMonto)){
+                echo 'algo salio muy mal pipipip';
+                header("location: ../view/editar.view.php?id_caja=".urlencode($id_caja));
+            }
+            
+            header("location: ../view/admin.view.php");
+            
+        }else{
+            echo 'error faltan datos por llenar';
+            header("location: ../view/editar.view.php?id_caja=".urlencode($id_caja));
+        }
+
+
+
+
+        break;
+    
 
     default:
         echo 'no hay ni un id';

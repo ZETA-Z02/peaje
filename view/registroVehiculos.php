@@ -80,6 +80,61 @@ while ($row = $registro->fetch_array(MYSQLI_ASSOC)) {
     </form>
     
 </table>
+<!--borrar esta parte si no funciona el grafico-->
+<div class="col-lg-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Total de Reportes Enviados</h5>
+
+              <!-- Bar Chart -->
+              <div id="barChart" style="min-height: 400px;" class="echart"></div>
+              <?php 
+              include "../models/reportes.model.php";
+              $reportes = new Reportes();
+              $data = $reportes->verReportes();
+
+              $datos = array();
+
+                // Recorrer el resultado y añadir los datos al array
+                while ($fila = $data->fetch_assoc()) {
+                    $datos[$fila['nombre']] = $fila['cantidad'];
+                }
+                // Convertir los datos a formato JSON
+                $datos_json = json_encode($datos);
+              ?>
+
+              <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                  var datos = <?php echo $datos_json; ?>;
+                  // Convertir los datos a un array de objetos
+                  var datos_array = [];
+                  Object.keys(datos).forEach(function(key) {
+                      datos_array.push({
+                        name: key,
+                        value: datos[key]
+                      }); 
+                    });
+
+                  echarts.init(document.querySelector("#barChart")).setOption({
+                    xAxis: {
+                      type: 'category',
+                      data: ['edg', 'ang', 'jho', 'elm', 'jer', 'sa', 'do']
+                    },
+                    yAxis: {
+                      type: 'value'
+                    },
+                    series: [{
+                      data: datos_array,
+                      type: 'bar'
+                    }]
+                  });
+                });
+              </script>
+              <!-- End Bar Chart -->
+
+</div>
+</div>
+</div>
 
 <a href="admin.view.php"><h2>ATRAS</h2></a>
 </div>

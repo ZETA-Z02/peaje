@@ -1,6 +1,7 @@
 <?php
 require("conexion.php");
 
+
 function personal(){
     $conexion = Conexion();
     $sql = "SELECT * FROM personal;";
@@ -72,9 +73,9 @@ function borrarCategoria($idcategoria){
     $sql = "DELETE FROM tarifa WHERE id_categoria  = '$idcategoria';";
     $conexion->query($sql);
 }
-function insertarPeaje($placa,$idcategoria,$fecha,$hora,$opcionPago,$monto,$idlogin,$vuelto){
+function insertarPeaje($placa,$idcategoria,$fecha,$hora,$opcionPago,$monto,$idlogin,$vuelto,$id_caja){
     $conexion = Conexion();
-    $sql = "INSERT INTO registroVehiculos VALUES(null,'$placa','$idcategoria','$fecha','$hora','$opcionPago','$monto','$idlogin','$vuelto');";
+    $sql = "INSERT INTO registroVehiculos VALUES(null,'$placa','$idcategoria','$fecha','$hora','$opcionPago','$monto','$idlogin','$vuelto','$id_caja');";
     $conexion->query($sql);
 }
 //CONSULTAS PARA VER LOS REGISTROS DE DISTINTAS MANERAS
@@ -124,14 +125,55 @@ function RegistroRevez(){
 }
 
 //CONSULTAS PARA EL ARQUEO
-function arqueo($fecha){
+function arqueo($fecha,$idcaja){
     $conexion = Conexion();
-    $sql = "SELECT SUM(r.monto) AS total,SUM(r.vuelto) AS vuelto, SUM(t.tarifa) AS tarifa 
+    $sql = "SELECT SUM(r.monto) AS total,SUM(r.vuelto) AS vuelto, SUM(t.tarifa) AS tarifa
     FROM registroVehiculos r 
     JOIN tarifa t ON r.id_categoria = t.id_categoria 
     WHERE opcion_pago = 'efectivo' 
-    AND fecha = '$fecha' 
-    GROUP BY t.tarifa;";
+    AND fecha = '$fecha'
+    AND id_caja = '$idcaja';";
+    $result = $conexion->query($sql);
+    $data = $result->fetch_array(MYSQLI_ASSOC);
+    return $data;
+}
+
+//todos sobre caja, =consultas para la caja
+function caja(){
+    $conexion = Conexion();
+    $sql = "SELECT * FROM caja;";
+    $data = $conexion->query($sql);
+    return $data;
+}
+function insertarCaja($id_personal,$descripcion,$monto_inicio){
+    $conexion = Conexion();
+    $sql = "INSERT INTO caja VALUES(null,'$id_personal','$monto_inicio','$descripcion');";
+    $conexion->query($sql);
+}
+function cajaUnica($id_caja){
+    $conexion = Conexion();
+    $sql = "SELECT * FROM caja where id_caja = '$id_caja';";
+    $result = $conexion->query($sql);
+    $data = $result->fetch_array(MYSQLI_ASSOC);
+    return $data;
+}
+function updateCaja($id_caja,$id_personal,$descripcion,$monto){
+    $conexion = Conexion();
+    $sql = "UPDATE caja SET id_personal = '$id_personal', descripcion ='$descripcion' , monto_inicial = '$monto' WHERE id_caja = '$id_caja';";
+    $conexion->query($sql);
+}
+
+
+function cajaPersonal($idpersonal){
+    $conexion = Conexion();
+    $sql = "SELECT * FROM caja WHERE id_personal = '$idpersonal';";
+    $result = $conexion->query($sql);
+    $data = $result->fetch_array(MYSQLI_ASSOC);
+    return $data;
+}
+function montoCaja($idcaja){
+    $conexion = Conexion();
+    $sql = "SELECT * FROM caja WHERE id_caja = '$idcaja';";
     $result = $conexion->query($sql);
     $data = $result->fetch_array(MYSQLI_ASSOC);
     return $data;
