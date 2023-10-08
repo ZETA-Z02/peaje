@@ -75,7 +75,7 @@ function borrarCategoria($idcategoria){
 }
 function insertarPeaje($placa,$idcategoria,$fecha,$hora,$opcionPago,$monto,$idlogin,$vuelto,$id_caja){
     $conexion = Conexion();
-    $sql = "INSERT INTO registroVehiculos VALUES(null,'$placa','$idcategoria','$fecha','$hora','$opcionPago','$monto','$idlogin','$vuelto','$id_caja');";
+    $sql = "INSERT INTO registrovehiculos VALUES(null,'$placa','$idcategoria','$fecha','$hora','$opcionPago','$monto','$idlogin','$vuelto','$id_caja');";
     $conexion->query($sql);
 }
 //CONSULTAS PARA VER LOS REGISTROS DE DISTINTAS MANERAS
@@ -84,7 +84,7 @@ function Registro(){
     $conexion = Conexion();
     $sql = "SELECT r.*, SUBSTRING_INDEX(t.descripcion, ' ', -2) AS tipo, t.tarifa,  
             (SELECT CONCAT(nombre, ' ', apellido) AS name FROM personal WHERE id_personal = r.id_login) AS name  
-            FROM registroVehiculos r  
+            FROM registrovehiculos r  
             JOIN tarifa t ON r.id_categoria = t.id_categoria;";
     $data = $conexion->query($sql);
     return $data;
@@ -94,7 +94,7 @@ function registroHora($hora,$fecha,$personal,$categoria){
     $sql = "SELECT r.*, SUBSTRING_INDEX(t.descripcion, ' ', -2) AS tipo, t.tarifa,  (SELECT CONCAT(nombre, ' ', apellido) AS name 
     FROM personal 
     WHERE id_personal = r.id_login) AS name  
-    FROM registroVehiculos r  
+    FROM registrovehiculos r  
     JOIN tarifa t ON r.id_categoria = t.id_categoria
     WHERE 1 = 1 ";
     if(!empty($hora)){
@@ -117,7 +117,7 @@ function RegistroRevez(){
     $conexion = Conexion();
     $sql = "SELECT r.*, SUBSTRING_INDEX(t.descripcion, ' ', -2) AS tipo, t.tarifa,  
             (SELECT CONCAT(nombre, ' ', apellido) AS name FROM personal WHERE id_personal = r.id_login) AS name  
-            FROM registroVehiculos r  
+            FROM registrovehiculos r  
             JOIN tarifa t ON r.id_categoria = t.id_categoria
             ORDER BY r.id_registro DESC;";
     $data = $conexion->query($sql);
@@ -128,7 +128,7 @@ function RegistroRevez(){
 function arqueo($fecha,$idcaja){
     $conexion = Conexion();
     $sql = "SELECT SUM(r.monto) AS total,SUM(r.vuelto) AS vuelto, SUM(t.tarifa) AS tarifa
-    FROM registroVehiculos r 
+    FROM registrovehiculos r 
     JOIN tarifa t ON r.id_categoria = t.id_categoria 
     WHERE opcion_pago = 'efectivo' 
     AND fecha = '$fecha'
