@@ -1,0 +1,15 @@
+INSERT INTO tarifas VALUES(null,'vehiculos ligeros',18.40);
+INSERT INTO tarifas VALUES(null,'vehiculos pesados**2 ejes',36.80);
+INSERT INTO tarifas VALUES(null,'vehiculos pesados**3 ejes',55.20);
+INSERT INTO tarifas VALUES(null,'vehiculos pesados**4 ejes',73.60);
+INSERT INTO tarifas VALUES(null,'vehiculos pesados**5 ejes',92.00);
+INSERT INTO tarifas VALUES(null,'vehiculos pesados**6 ejes',110.40);
+INSERT INTO tarifas VALUES(null,'vehiculos pesados**7 ejes',128.80);
+INSERT INTO tarifas VALUES(null,'vehiculos pesados**8 ejes',147.20);
+INSERT INTO tarifas VALUES(null,'vehiculos pesados**9 ejes',165.60);
+INSERT INTO tarifas VALUES(null,'vehiculos pesados**10 ejes',184.00);
+INSERT INTO tarifas VALUES(null,'vehiculos pesados**11 ejes',202.40);
+INSERT INTO tarifas VALUES(null,'vehiculos pesados**12 ejes',220.80);
+INSERT INTO tarifas VALUES(null,'vehiculos pesados**13 ejes',239.20);
+INSERT INTO tarifas VALUES(null,'vehiculos pesados**14 ejes',257.60);
+INSERT INTO tarifas VALUES(null,'vehiculos pesados**15 ejes',276.00);

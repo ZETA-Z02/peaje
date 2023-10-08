@@ -2,8 +2,8 @@
 function Conexion()
 {
     $host = 'localhost';
-    $user = 'root';
-    $password = 'zeta';
+    $user = 'jersson';
+    $password = 'jersson';
     $bd = 'peaje';
 
     $conexion = mysqli_connect($host,$user,$password,$bd);

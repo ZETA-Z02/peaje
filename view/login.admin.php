@@ -42,8 +42,5 @@
             </form>
         </div>
     </section>
-    
-    
-    </form>
 </body>
 </html>

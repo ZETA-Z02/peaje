@@ -1,7 +1,6 @@
 <?php
 require("../model/consultas.model.php");
 $validar = validarAdmin();
-
 if(isset($_POST['usuario']) && isset($_POST['password'])){
     $user = validarAdmin1($_POST['usuario']);
     if(password_verify($_POST['password'], $user['password'])){
@@ -14,10 +13,10 @@ if(isset($_POST['usuario']) && isset($_POST['password'])){
     //header("location: ../view/registrarPersonal.view.php");
 }else{
     if($validar['total'] == 0){
-        //echo 'entra a pagina superadmin';
+        //echo 'entra a pagina superadmin';     
         $conexion = conexion();
-        $superAdmin = '2023200302';
-        $passwordAdmin = 'superDiana20032023';
+        $superAdmin = 'jersson';
+        $passwordAdmin = 'zeta';
         $passwordEncryp = password_hash($passwordAdmin,PASSWORD_BCRYPT);
         //encrptar la contrase;a del super administrador para guardar en la base de datos que servi
 
@@ -34,6 +33,4 @@ if(isset($_POST['usuario']) && isset($_POST['password'])){
         header("location: ../");
     }
 }
-
-
 ?>

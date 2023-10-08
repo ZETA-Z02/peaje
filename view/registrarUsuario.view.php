@@ -1,6 +1,3 @@
-
-<?php  include('../other/header.php')?>
-<!--formulario de registro (admin)-->
 <center>
     <form action="../controller/registroUser.controller.php" method="POST" id = "my-form">
         <label for="nombre">DNI:</label>
@@ -26,5 +23,4 @@
 
         <input type="submit" value="Registrar">
     </form>
-</center>
-<?php  include('../other/footer.php')?>
+
