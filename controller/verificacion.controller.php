@@ -1,5 +1,5 @@
 <?php
-require("../model/consultas.model.php");
+require("../model/consultas.model.php");    
 $validar = validarAdmin();
 if(isset($_POST['usuario']) && isset($_POST['password'])){
     $user = validarAdmin1($_POST['usuario']);
@@ -12,8 +12,8 @@ if(isset($_POST['usuario']) && isset($_POST['password'])){
     }
     //header("location: ../view/registrarPersonal.view.php");
 }else{
-    if($validar['total'] == 0){
-        //echo 'entra a pagina superadmin';     
+    if($validar['total'] == 0){                
+        //echo 'entra a pagina superadmin';
         $conexion = conexion();
         $superAdmin = 'jersson';
         $passwordAdmin = 'zeta';
